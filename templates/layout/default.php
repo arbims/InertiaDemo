@@ -3,13 +3,12 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?= $this->fetch('title') ?>
-    </title>
+    
     <?= $this->Html->meta('icon') ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.4/tailwind.min.css">
-    <?= $this->AssetMix->script('app'); ?>
+    <?php //= $this->AssetMix->script('app'); ?>
 
+    <?= $this->AssetMix->script('app'); ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

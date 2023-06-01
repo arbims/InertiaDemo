@@ -1,4 +1,5 @@
 <template>
+  <Head title="Settings" />
   <Layout>
     <h1 class="text-3xl font-bold">
       Settings
@@ -6,9 +7,6 @@
   </Layout>
 </template>
 
-<script>
-import Layout from '../../Shared/Layout.vue'
-export default {
-  components: { Layout }
-}
+<script setup>
+
 </script>

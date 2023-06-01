@@ -1,15 +1,13 @@
 <template>
-  <Layout>
-    <h1 class="text-3xl font-bold">
-      Home
-    </h1>
-  </Layout>
+  <Head>
+    <title>Home</title>
+    <meta type="description" content="Description my home page" head-key="description">
+  </Head>
+  <h1 class="text-3xl font-bold">
+    Home
+  </h1>
 </template>
 
-<script>
-import Layout from '../../Shared/Layout.vue'
-export default {
-  
-  components: { Layout }
-}
+<script setup>
+import { Head } from '@inertiajs/vue3'
 </script>
