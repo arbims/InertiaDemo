@@ -20,6 +20,7 @@ class HomeController extends AppController
   {
       parent::initialize();
       $this->loadComponent('Paginator');
+      $this->loadComponent('RequestHandler'); 
   }
 
   public function index()
@@ -30,7 +31,11 @@ class HomeController extends AppController
   public function users(UsersTable $usersTable)
   {
     $users = $this->paginate($usersTable->find()->select(['id','name']));
-    $this->set(['time' => FrozenTime::now()->i18nFormat('HH:mm:ss'), 'users' => $users]);
+    $paging = $this->Paginator->getPaginator()->getPagingParams()["Users"];
+    $this->set(['time' => FrozenTime::now()->i18nFormat('HH:mm:ss'), 'users' => [
+      'data' => $users,
+      'paging' => $paging
+    ]]);
   }
 
   public function settings()

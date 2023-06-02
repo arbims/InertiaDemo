@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-          <tr class="hover:bg-gray-50" v-for="user in users" :key="user.id">
+          <tr class="hover:bg-gray-50" v-for="user in users.data" :key="user.id">
             <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
               <div class="text-sm">
                 <div class="font-medium text-gray-700">{{ user.name }}</div>
@@ -35,9 +35,10 @@
         </tbody>
       </table>
     </div>
-    <ul>
-      <li v-for="user in users" :key="user.id" v-text="user.name"></li>
-    </ul>
+    
+    <!-- Paginator -->
+    {{ users.paging.pageCount }}
+    <Pagination :paging="users.paging" :url="'/users?page'"/>
     <div style="margin-top: 800px;">
       <p>The current Time {{ time }}</p>
       <Link href="/users" class="text-blue-500 hover:underline" preserve-scroll>Refresh</Link>
@@ -47,7 +48,7 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
-
+import Pagination from '../../Shared/Pagination.vue'
 defineProps({
   time: String,
   users: Array
