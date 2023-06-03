@@ -40,7 +40,6 @@
     </div>
 
     <!-- Paginator -->
-    {{ users.paging.pageCount }}
     <Pagination :paging="users.paging" :url="'/users?page'" :search="(search !== '' ? `&search=${search}` : '')" />
     <div style="margin-top: 800px;">
       <p>The current Time {{ time }}</p>
@@ -55,7 +54,6 @@ import Pagination from '../../Shared/Pagination.vue'
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
 
-let name = 'Users';
 let props = defineProps({
   time: String,
   users: Object,

@@ -4,7 +4,7 @@
       <Link :href="`${url}=${paging.page - 1}`" 
       :class="paging.prevPage ? '' : 'text-gray-400 pointer-events-none'"
       class="px-1"
-      v-text="'<< prev'"></Link>
+      v-text="'&laquo; prev'"></Link>
       <Link :href="`${url}=${i}${search}`" v-for="i in paging.pageCount" :key="i"
       class="px-1"
       :class="paging.page == i ? 'font-bold' : ''"
@@ -12,7 +12,7 @@
       <Link :href="`${url}=${paging.page + 1}`"
       class="px-1"
       :class="paging.nextPage ? '' : 'text-gray-400 pointer-events-none'"
-      v-text="'Next >>'"></Link>
+      v-text="'next &raquo;'"></Link>
     </div>
 </template>
 

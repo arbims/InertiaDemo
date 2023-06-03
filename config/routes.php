@@ -50,11 +50,13 @@ return static function (RouteBuilder $routes) {
          * its action called 'display', and we pass a param to select the view file
          * to use (in this case, templates/Pages/home.php)...
          */
-        $builder->connect('/', ['controller' => 'Home', 'action' => 'index']);
+        $builder->get('/', ['controller' => 'Home', 'action' => 'index']);
         
-        $builder->connect('/users', ['controller' => 'Home', 'action' => 'users']);
+        $builder->get('/users', ['controller' => 'Users', 'action' => 'index']);
+
+        $builder->connect('/users/create', ['controller' => 'Users', 'action' => 'create']);
         
-        $builder->connect('/settings', ['controller' => 'Home', 'action' => 'settings']);
+        $builder->get('/settings', ['controller' => 'Home', 'action' => 'settings']);
         
         $builder->post('/logout', ['controller' => 'Home', 'action' => 'logout']);
 

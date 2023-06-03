@@ -17,7 +17,11 @@
         </header>
     </section>
     <section class="p-6">
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-3xl mx-auto mb-6">
+            <div v-if="$page.props.flash.message"
+                class="bg-green-100 border-l-4 border-orange-500 text-orange-700 p-4 text-green-900">
+                {{ $page.props.flash.message }}
+            </div>
             <slot></slot>
         </div>
     </section>
@@ -28,9 +32,8 @@ import Nav from './Nav.vue'
 
 export default {
     components: { Nav },
-
     computed: {
-        username () {
+        username() {
             return this.$page.props.auth.user.username;
         }
     }

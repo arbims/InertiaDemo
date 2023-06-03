@@ -57,12 +57,14 @@ class UsersTable extends Table
         $validator
             ->scalar('name')
             ->requirePresence('name', 'create')
+            ->notBlank('name')
             ->notEmptyString('name');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email')
+            ->notBlank('email')
             ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator

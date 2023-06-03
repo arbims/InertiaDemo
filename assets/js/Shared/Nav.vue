@@ -9,7 +9,7 @@
         
       </li>
       <li>
-        <NavLink href="/users" :active="$page.component == 'Home/Users'" >
+        <NavLink href="/users" :active="$page.component == 'Users/Index'" >
           Users
         </NavLink>
       </li>

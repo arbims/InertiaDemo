@@ -15,35 +15,10 @@ use Cake\ORM\TableRegistry;
  */
 class HomeController extends AppController
 {
-  public $paginate = [
-    'limit' => 5,
-  ];
-  public function initialize(): void
-  {
-      parent::initialize();
-      $this->loadComponent('Paginator');
-      $this->loadComponent('RequestHandler'); 
-  }
 
   public function index()
   {
     $this->set(['username' => 'elarbi']);
-  }
-
-  public function users(UsersTable $usersTable)
-  {
-    $search = $this->request->getQuery('search') ?? '';
-    $query = $usersTable->find()->select(['id','name'])->where(['name LIKE' => "%{$search}%"]);
-  
-    $users = $this->paginate($query);
-
-    $paging = $this->Paginator->getPaginator()->getPagingParams()["Users"];
-    $this->set(['time' => FrozenTime::now()->i18nFormat('HH:mm:ss'), 
-    'users' => [
-      'data' => $users,
-      'paging' => $paging,
-    ], 
-    'filters' => $search]);
   }
 
   public function settings()

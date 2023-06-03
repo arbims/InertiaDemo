@@ -24,13 +24,21 @@ var map = {
 		"./assets/js/Pages/Home/Settings.vue",
 		"assets_js_Pages_Home_Settings_vue"
 	],
-	"./Home/Users": [
-		"./assets/js/Pages/Home/Users.vue",
-		"assets_js_Pages_Home_Users_vue"
+	"./Users/Create": [
+		"./assets/js/Pages/Users/Create.vue",
+		"assets_js_Pages_Users_Create_vue"
 	],
-	"./Home/Users.vue": [
-		"./assets/js/Pages/Home/Users.vue",
-		"assets_js_Pages_Home_Users_vue"
+	"./Users/Create.vue": [
+		"./assets/js/Pages/Users/Create.vue",
+		"assets_js_Pages_Users_Create_vue"
+	],
+	"./Users/Index": [
+		"./assets/js/Pages/Users/Index.vue",
+		"assets_js_Pages_Users_Index_vue"
+	],
+	"./Users/Index.vue": [
+		"./assets/js/Pages/Users/Index.vue",
+		"assets_js_Pages_Users_Index_vue"
 	]
 };
 function webpackAsyncContext(req) {
@@ -18589,7 +18597,11 @@ var _hoisted_8 = {
   "class": "p-6"
 };
 var _hoisted_9 = {
-  "class": "max-w-3xl mx-auto"
+  "class": "max-w-3xl mx-auto mb-6"
+};
+var _hoisted_10 = {
+  key: 0,
+  "class": "bg-green-100 border-l-4 border-orange-500 text-orange-700 p-4 text-green-900"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -18599,7 +18611,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1, _hoisted_2];
     }),
     _: 1 /* STABLE */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, " Welcome Back, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.username), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])], 64 /* STABLE_FRAGMENT */);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, " Welcome Back, " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.username), 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Nav)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_ctx.$page.props.flash.message ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.flash.message), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),
@@ -18638,7 +18650,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["active"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["NavLink"], {
     href: "/users",
-    active: _ctx.$page.component == 'Home/Users'
+    active: _ctx.$page.component == 'Users/Index'
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_4];
@@ -31078,7 +31090,7 @@ const isThenable = (thing) =>
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"assets_js_Pages_Home_Index_vue":1,"assets_js_Pages_Home_Settings_vue":1,"assets_js_Pages_Home_Users_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"assets_js_Pages_Home_Index_vue":1,"assets_js_Pages_Home_Settings_vue":1,"assets_js_Pages_Users_Create_vue":1,"assets_js_Pages_Users_Index_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
