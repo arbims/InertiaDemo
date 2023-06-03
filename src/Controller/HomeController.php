@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Table\UsersTable;
+use Cake\Database\Expression\QueryExpression;
+use Cake\Database\Query;
 use Cake\I18n\FrozenTime;
 use Cake\ORM\TableRegistry;
 
@@ -30,12 +32,18 @@ class HomeController extends AppController
 
   public function users(UsersTable $usersTable)
   {
-    $users = $this->paginate($usersTable->find()->select(['id','name']));
+    $search = $this->request->getQuery('search') ?? '';
+    $query = $usersTable->find()->select(['id','name'])->where(['name LIKE' => "%{$search}%"]);
+  
+    $users = $this->paginate($query);
+
     $paging = $this->Paginator->getPaginator()->getPagingParams()["Users"];
-    $this->set(['time' => FrozenTime::now()->i18nFormat('HH:mm:ss'), 'users' => [
+    $this->set(['time' => FrozenTime::now()->i18nFormat('HH:mm:ss'), 
+    'users' => [
       'data' => $users,
-      'paging' => $paging
-    ]]);
+      'paging' => $paging,
+    ], 
+    'filters' => $search]);
   }
 
   public function settings()
