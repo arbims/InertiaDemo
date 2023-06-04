@@ -37,10 +37,14 @@
           </tr>
         </tbody>
       </table>
+      
     </div>
 
     <!-- Paginator -->
     <Pagination :paging="users.paging" :url="'/users?page'" :search="(search !== '' ? `&search=${search}` : '')" />
+    <div class="mt-4">
+      <Link href="/users/create" class="bg-gray-600 text-white py-2 px-4 hover:bg-gray-900 ">Add User</Link>
+    </div>
     <div style="margin-top: 800px;">
       <p>The current Time {{ time }}</p>
       <Link href="/users" class="text-blue-500 hover:underline" preserve-scroll>Refresh</Link>
@@ -53,6 +57,7 @@
 import Pagination from '../../Shared/Pagination.vue'
 import { ref, watch } from 'vue';
 import { router } from '@inertiajs/vue3';
+import debounce from "lodash/debounce";
 
 let props = defineProps({
   time: String,
@@ -61,14 +66,12 @@ let props = defineProps({
 })
 
 let search = ref(props.filters)
-watch(search, value => {
-  router.visit('/users', 
-  {
+watch(search, debounce(function(value) {
+  router.visit('/users', { 
     method: 'get',
     data: {search: value},
     preserveState: true,
-    replace: true
-  }
+    replace: true }
   )
-})
+}, 300))
 </script>

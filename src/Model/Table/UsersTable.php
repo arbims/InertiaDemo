@@ -57,19 +57,22 @@ class UsersTable extends Table
         $validator
             ->scalar('name')
             ->requirePresence('name', 'create')
-            ->notBlank('name')
+            ->notBlank('name', 'Le champ ne doit pas etre vide')
             ->notEmptyString('name');
 
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email')
-            ->notBlank('email')
-            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
+            ->notBlank('email', 'Le champ ne doit pas etre vide')
+            ->add('email', 'unique', ['rule' => 'validateUnique', 'provider' => 'table',
+            'message' => 'ce email existe deja']);
 
         $validator
             ->scalar('password')
             ->requirePresence('password', 'create')
+            ->notBlank('name', 'Le champ ne doit pas etre vide')
+            ->minLength('password',2, 'Le mot de passe de contenit minimum 2 charactere')
             ->notEmptyString('password');
 
         return $validator;
