@@ -3,9 +3,12 @@
 
     <Head title="Users" />
     <div class="flex justify-between">
-      <h1 class="text-3xl font-bold">
-        Users
-      </h1>
+      <div class="flex">
+        <Link href="/users/create" class="bg-gray-600 text-white py-2 px-4 hover:bg-gray-900 ">Add User</Link>
+        <h1 class="text-2xl ml-3 font-bold">
+          List of Users
+        </h1>
+      </div>
       <input v-model="search" type="text" placeholder="search ..." class="border rounded px-2">
     </div>
     <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md mt-6">
@@ -37,14 +40,12 @@
           </tr>
         </tbody>
       </table>
-      
+
     </div>
 
     <!-- Paginator -->
     <Pagination :paging="users.paging" :url="'/users?page'" :search="(search !== '' ? `&search=${search}` : '')" />
-    <div class="mt-4">
-      <Link href="/users/create" class="bg-gray-600 text-white py-2 px-4 hover:bg-gray-900 ">Add User</Link>
-    </div>
+
     <div style="margin-top: 800px;">
       <p>The current Time {{ time }}</p>
       <Link href="/users" class="text-blue-500 hover:underline" preserve-scroll>Refresh</Link>
@@ -66,12 +67,13 @@ let props = defineProps({
 })
 
 let search = ref(props.filters)
-watch(search, debounce(function(value) {
-  router.visit('/users', { 
+watch(search, debounce(function (value) {
+  router.visit('/users', {
     method: 'get',
-    data: {search: value},
+    data: { search: value },
     preserveState: true,
-    replace: true }
+    replace: true
+  }
   )
 }, 300))
 </script>

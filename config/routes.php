@@ -45,6 +45,11 @@ return static function (RouteBuilder $routes) {
     $routes->setRouteClass(DashedRoute::class);
 
     $routes->scope('/', function (RouteBuilder $builder) {
+
+        $builder->prefix('Auth', ['path' => '/'], function ($routes) {
+            $routes->connect('/login', ['controller' => 'Auth', 'action' => 'login']);
+            $routes->connect('/logout', ['controller' => 'Auth', 'action' => 'logout']);
+        });
         /*
          * Here, we are connecting '/' (base path) to a controller called 'Pages',
          * its action called 'display', and we pass a param to select the view file
@@ -58,7 +63,7 @@ return static function (RouteBuilder $routes) {
         
         $builder->get('/settings', ['controller' => 'Home', 'action' => 'settings']);
         
-        $builder->post('/logout', ['controller' => 'Home', 'action' => 'logout']);
+        //$builder->post('/logout', ['controller' => 'Home', 'action' => 'logout']);
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
@@ -78,7 +83,7 @@ return static function (RouteBuilder $routes) {
          * You can remove these routes once you've connected the
          * routes you want in your application.
          */
-        $builder->fallbacks();
+        //$builder->fallbacks();
     });
 
     /*

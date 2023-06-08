@@ -14,7 +14,7 @@ use Cake\I18n\FrozenTime;
 class UsersController extends AppController
 {
   public $paginate = [
-    'limit' => 5,
+    'limit' => 10,
   ];
   public function initialize(): void
   {
