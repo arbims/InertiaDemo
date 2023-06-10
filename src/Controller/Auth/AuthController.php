@@ -26,11 +26,21 @@ class AuthController extends AppController
 
   public function login()
   {
+    $result = $this->Authentication->getResult();
+    // If the user is logged in send them away.
+    if ($result->isValid()) {
+      $target = $this->Authentication->getLoginRedirect() ?? '/';
+      return $this->redirect($target);
+    }
+    if ($this->request->is('post')) {
+      $this->Flash->error('Invalid username or password');
+    }
+
   }
 
   public function logout()
   {
-    debug($this->request->getData());
-    dd('user is logout');
+    $this->Authentication->logout();
+    return $this->redirect('/login');
   }
 }

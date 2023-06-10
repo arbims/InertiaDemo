@@ -5,4 +5,7 @@ mix.setPublicPath('./webroot')
     //.extract()
     .vue(3)
     .sass('assets/sass/app.scss', 'webroot/css')
+    .webpackConfig({
+        plugins: [require('unplugin-vue-define-options/webpack')()],
+    })
     .version().disableNotifications();

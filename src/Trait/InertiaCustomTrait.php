@@ -31,13 +31,18 @@ trait InertiaCustomTrait
  
     private function setUser(): void
     {
-        $this->set([
-            'auth' => [
-                'user' => [
-                    'username' => 'Jhon Doe'
+        $user = $this->Authentication->getIdentity();
+        if ($user) {
+            $this->set([
+                'auth' => [
+                    'user' => [
+                        'username' => $user->get('name'),
+                        'email' => $user->get('email')
+                    ]
                 ]
-            ]
-        ]);
+            ]);
+        }
+        
     }
 
 }
